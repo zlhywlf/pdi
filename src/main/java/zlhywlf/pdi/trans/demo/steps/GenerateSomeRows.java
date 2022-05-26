@@ -2,6 +2,7 @@ package zlhywlf.pdi.trans.demo.steps;
 
 import lombok.NoArgsConstructor;
 import org.pentaho.di.core.gui.Point;
+import org.pentaho.di.trans.step.StepMetaInterface;
 import org.pentaho.di.trans.steps.rowgenerator.RowGeneratorMeta;
 import org.springframework.stereotype.Component;
 import zlhywlf.pdi.core.AbstractPdiStep;
@@ -13,9 +14,9 @@ import zlhywlf.pdi.trans.demo.IDemoStep;
  */
 @NoArgsConstructor
 @Component(DemoTrans.GENERATE_SOME_ROWS)
-public class GenerateSomeRows extends AbstractPdiStep<RowGeneratorMeta> implements IDemoStep {
+public class GenerateSomeRows extends AbstractPdiStep implements IDemoStep {
     @Override
-    protected RowGeneratorMeta configureForMeta() {
+    protected StepMetaInterface configureForMeta() {
         RowGeneratorMeta rowGeneratorMeta = new RowGeneratorMeta();
         rowGeneratorMeta.setRowLimit("5");
         rowGeneratorMeta.allocate(2);

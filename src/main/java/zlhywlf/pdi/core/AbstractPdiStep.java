@@ -13,7 +13,7 @@ import org.pentaho.di.trans.step.StepMetaInterface;
 /**
  * @author zlhywlf
  */
-public abstract class AbstractPdiStep<T extends StepMetaInterface> {
+public abstract class AbstractPdiStep {
 
     @Getter
     private final StepMeta step;
@@ -29,7 +29,7 @@ public abstract class AbstractPdiStep<T extends StepMetaInterface> {
     }
 
     public AbstractPdiStep() {
-        T meta = configureForMeta();
+        StepMetaInterface meta = configureForMeta();
         step = new StepMeta(PluginRegistry.getInstance().getPluginId(StepPluginType.class, meta), this.getClass().getSimpleName(), meta);
         step.setDraw(true);
         step.setLocation(configureForPoint());
@@ -41,7 +41,7 @@ public abstract class AbstractPdiStep<T extends StepMetaInterface> {
      *
      * @return step
      */
-    protected abstract T configureForMeta();
+    protected abstract StepMetaInterface configureForMeta();
 
     /**
      * step 显示位置

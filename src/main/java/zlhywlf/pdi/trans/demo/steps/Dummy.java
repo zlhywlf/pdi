@@ -2,6 +2,7 @@ package zlhywlf.pdi.trans.demo.steps;
 
 import lombok.NoArgsConstructor;
 import org.pentaho.di.core.gui.Point;
+import org.pentaho.di.trans.step.StepMetaInterface;
 import org.pentaho.di.trans.steps.rowstoresult.RowsToResultMeta;
 import org.springframework.stereotype.Component;
 import zlhywlf.pdi.core.AbstractPdiStep;
@@ -13,10 +14,10 @@ import zlhywlf.pdi.trans.demo.IDemoStep;
  */
 @NoArgsConstructor
 @Component(DemoTrans.DUMMY)
-public class Dummy extends AbstractPdiStep<RowsToResultMeta> implements IDemoStep {
+public class Dummy extends AbstractPdiStep implements IDemoStep {
 
     @Override
-    protected RowsToResultMeta configureForMeta() {
+    protected StepMetaInterface configureForMeta() {
         return new RowsToResultMeta();
     }
 

@@ -1,24 +1,22 @@
-package zlhywlf.pdi.trans.demo.steps;
+package zlhywlf.pdi.trans.demo;
 
 import lombok.NoArgsConstructor;
 import org.pentaho.di.core.gui.Point;
 import org.pentaho.di.trans.step.StepMetaInterface;
 import org.pentaho.di.trans.steps.rowgenerator.RowGeneratorMeta;
 import org.springframework.stereotype.Component;
-import zlhywlf.pdi.core.AbstractPdiStep;
-import zlhywlf.pdi.trans.demo.DemoTrans;
-import zlhywlf.pdi.trans.demo.IDemoStep;
+import zlhywlf.pdi.core.BasePdiStep;
 
 /**
  * @author zlhywlf
  */
 @NoArgsConstructor
 @Component(DemoTrans.GENERATE_SOME_ROWS)
-public class GenerateSomeRows extends AbstractPdiStep implements IDemoStep {
+public class StepGenerateSomeRows extends BasePdiStep implements DemoTrans.IDemoStep {
     @Override
     protected StepMetaInterface configureForMeta() {
         RowGeneratorMeta rowGeneratorMeta = new RowGeneratorMeta();
-        rowGeneratorMeta.setRowLimit("5");
+        rowGeneratorMeta.setRowLimit("${"+DemoTrans.VAR_ROW+"}");
         rowGeneratorMeta.allocate(2);
         rowGeneratorMeta.setFieldName(new String[]{"field_1", "field_2"});
         rowGeneratorMeta.setFieldType(new String[]{"String", "Integer"});

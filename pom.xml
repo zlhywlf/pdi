@@ -24,6 +24,7 @@
     </repositories>
 
     <dependencies>
+        <!--    start:kettle核心依赖    -->
         <dependency>
             <groupId>pentaho-kettle</groupId>
             <artifactId>kettle-core</artifactId>
@@ -55,11 +56,50 @@
             <artifactId>pdi-core-plugins-impl</artifactId>
             <version>${pdi.version}</version>
         </dependency>
+        <!--    end:kettle核心依赖    -->
+
+        <!--    start:插件开发示例    -->
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-sdk-embedding-samples</artifactId>
+            <version>${pdi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-sdk-partitioner-plugin</artifactId>
+            <version>${pdi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-sdk-jobentry-plugin</artifactId>
+            <version>${pdi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-sdk-database-plugin</artifactId>
+            <version>${pdi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-sdk-step-plugin</artifactId>
+            <version>${pdi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--    end:插件开发示例    -->
+
+        <!--    start:日志    -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.10</version>
         </dependency>
+        <!--    end:日志    -->
+
+        <!--    start:其他    -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -81,6 +121,7 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <!--    end:其他    -->
     </dependencies>
-    
+
 </project>

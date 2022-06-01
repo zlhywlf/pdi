@@ -1,37 +1,39 @@
 package zlhywlf.pdi.trans.demo;
 
-import org.pentaho.di.core.database.DatabaseMeta;
+import org.pentaho.di.core.parameters.DuplicateParamException;
+import org.pentaho.di.trans.TransMeta;
 import org.springframework.stereotype.Component;
-import zlhywlf.pdi.core.AbstractPdiTrans;
-import zlhywlf.pdi.core.IPdiTrans;
-
-import java.util.Map;
+import zlhywlf.pdi.core.BasePdiTrans;
+import zlhywlf.pdi.core.IPdiStep;
 
 
 /**
  * @author zlhywlf
  */
 @Component
-public class DemoTrans extends AbstractPdiTrans<IDemoStep> implements IPdiTrans {
+public class DemoTrans extends BasePdiTrans<DemoTrans.IDemoStep> {
 
-    public static final String ADD_COUNTER_FIELD = "addCounterField";
-    public static final String DUMMY = "dummy";
-    public static final String GENERATE_SOME_ROWS = "generateSomeRows";
+    static final String ADD_COUNTER_FIELD = "addCounterField";
+    static final String DUMMY = "dummy";
+    static final String GENERATE_SOME_ROWS = "generateSomeRows";
+
+    static final String VAR_ROW = "ROW";
 
     @Override
     public String des() {
         return "DemoTrans";
     }
 
-
     @Override
-    public String getPreName() {
-        return null;
+    public void definitionParams(TransMeta transMeta) {
+        try {
+            transMeta.addParameterDefinition(VAR_ROW, "11", "ParameterDefinition");
+        } catch (
+                DuplicateParamException e) {
+            e.printStackTrace();
+        }
     }
 
-
-    @Override
-    protected Map<Integer, DatabaseMeta> configureForDatabase() {
-        return null;
+    interface IDemoStep extends IPdiStep {
     }
 }

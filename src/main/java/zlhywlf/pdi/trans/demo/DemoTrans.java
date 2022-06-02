@@ -25,7 +25,7 @@ public class DemoTrans extends BasePdiTrans<DemoTrans.IDemoStep> {
     }
 
     @Override
-    public void definitionParams(TransMeta transMeta) {
+    public void definitionMeta(TransMeta transMeta) {
         try {
             transMeta.addParameterDefinition(VAR_ROW, "11", "ParameterDefinition");
         } catch (

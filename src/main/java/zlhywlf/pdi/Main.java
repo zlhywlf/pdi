@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import zlhywlf.pdi.core.IPdiTrans;
-import zlhywlf.pdi.util.PdiUtils;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -22,10 +21,8 @@ import java.util.Map;
 @ComponentScan("zlhywlf.pdi")
 @Slf4j
 public class Main {
-    @Resource
+    @Resource(name = "demoFileTrans")
     IPdiTrans demoTrans;
-    @Resource
-    PdiUtils pdiUtils;
 
     public static void main(String[] args) {
         // 输出元数据时需要添加插件信息

@@ -1,5 +1,6 @@
 package zlhywlf.pdi.core;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.pentaho.di.core.RowMetaAndData;
 import org.pentaho.di.core.exception.KettleException;
@@ -25,7 +26,8 @@ import java.util.function.Function;
 public abstract class BasePdiTrans<T extends IPdiStep> implements IPdiTrans {
     @Resource
     private Map<String, T> stepConfigMap;
-    private final TransMeta transMeta = new TransMeta();
+    @Setter
+    private TransMeta transMeta = new TransMeta();
 
     @PostConstruct
     public void configureForTransMeta() {
@@ -39,7 +41,7 @@ public abstract class BasePdiTrans<T extends IPdiStep> implements IPdiTrans {
             }
         }
         transMeta.setName(this.getClass().getSimpleName());
-        definitionParams(transMeta);
+        definitionMeta(transMeta);
     }
 
     @Override
@@ -112,5 +114,5 @@ public abstract class BasePdiTrans<T extends IPdiStep> implements IPdiTrans {
         }
     }
 
-    public abstract void definitionParams(TransMeta transMeta);
+    public abstract void definitionMeta(TransMeta transMeta);
 }

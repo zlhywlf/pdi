@@ -57,6 +57,7 @@ public abstract class BasePdiTrans<T extends IPdiStep> implements IPdiTrans {
         }
         trans.waitUntilFinished();
         List<RowMetaAndData> resultRows = trans.getResultRows();
+        // TODO 需要修改
         List<Map<String, Object>> dataArr = new ArrayList<>();
         for (RowMetaAndData data : resultRows) {
             RowMetaInterface rowMeta = data.getRowMeta();

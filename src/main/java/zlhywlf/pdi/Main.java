@@ -3,8 +3,11 @@ package zlhywlf.pdi;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.pentaho.di.core.Const;
+import org.pentaho.di.core.KettleEnvironment;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.logging.LogLevel;
+import org.pentaho.di.job.Job;
+import org.pentaho.di.job.JobMeta;
 import org.pentaho.di.trans.Trans;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.steps.addsequence.AddSequenceMeta;
@@ -59,7 +62,7 @@ public class Main {
         } catch (KettleException e) {
             e.printStackTrace();
         }
-
+        KettleEnvironment.shutdown();
     }
 
 }
